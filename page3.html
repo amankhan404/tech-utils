@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch in js</title>
+   
+</head>
+<body>
+    <style>
+        
+body{
+    background-color: aliceblue;
+}
+.container{
+    background-color: rgb(190, 38, 11);
+    text-align: center;
+    height: auto;
+    width: auto;
+    color: white;
+    padding: 5%;
+    margin: 10%;
+    border-radius: 15px;
+    box-shadow: 4px 5px 6px 4px rgb(236, 187, 187);
+}
+p{
+    font-size: 40px;
+}
+button{
+    
+padding: 3%;
+background-color:transparent;
+border: 2px solid white;
+color: white;
+font-size: 20px;
+margin: 2%;
+border-radius: 10px;
+
+}
+button:hover{
+    transition: .3s;
+    color: crimson;
+    background-color: white;
+    font-weight: 600;
+}
+    </style>
+        <body>
+    <div class="container">
+  
+        <h1>Stopwatch built using javascript</h1>
+<p class="para"><span id="seconds">00</span>:<span id="tens">00</span></p>
+
+<button id="start">Start</button> 
+<button id="stop">Stop</button>
+<button id="reset">Reset</button>
+
+    </div>
+
+
+
+
+
+<script>
+
+window.onload=function()
+{
+
+var seconds = 0;
+var tens = 0;
+var appendTens = document.getElementById("tens");
+var appendSeconds = document.getElementById("seconds");
+var start = document.getElementById("start");
+var stop = document.getElementById("stop");
+var reset = document.getElementById("reset");
+var interval;
+
+start.onclick=function(){
+
+    interval = setInterval(startTimer, 10);
+}
+stop.onclick=function(){
+    clearInterval(interval);
+}
+
+reset.onclick=function(){
+clearInterval(interval);
+tens = "00";
+seconds="00";
+appendTens.innerHTML=tens;
+appendSeconds.innerHTML =seconds;
+
+}
+
+function startTimer()
+{
+
+    tens++;
+    if(tens<=9){
+        appendTens.innerHTML = "0" + tens;
+    }
+    if(tens > 9){
+
+        appendTens.innerHTML = tens;
+    }
+    if(tens>99){
+        console.log("seconds")
+        seconds++;
+        appendSeconds.innerHTML="0" + seconds;
+        tens = 0;
+        appendTens.innerHTML="0"+ 0;
+    
+    }
+    if(seconds>9){
+        appendSeconds.innerHTML=seconds;
+    }
+}
+}
+</script>
+
+
+</body>
+</html>

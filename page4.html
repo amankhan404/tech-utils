@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-Calculator</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+
+}
+.container{
+    margin: auto;
+    margin-top: 4rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 22rem;
+    height: auto;
+  text-align: center;
+    border-radius: 20px;
+    background:linear-gradient(rgb(106, 70, 204),rgb(134, 15, 145));
+    box-shadow: 7px 10px 15px 5px rgb(213, 206, 206);
+}
+.button{
+    color: white;
+    cursor: pointer;
+    padding: 0.4rem;
+    font-size: 1.5rem;
+    width: 4rem;
+    margin: 0.2rem;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: transparent;
+    border-radius: 5px;
+    text-align: center;
+}
+.button:hover{
+    transition: .2s;
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+.input{
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-weight: 600;
+    margin: 1rem;
+    font-size: 1.4rem;
+}
+@media only screen and (max-width:750px) 
+{
+    .container{
+        margin: auto;
+        margin-top: 4rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        width: 22rem;
+        height: auto;
+      text-align: center;
+        border-radius: 20px;
+        background:linear-gradient(rgb(106, 70, 204),rgb(134, 15, 145));
+        box-shadow: 7px 10px 15px 5px rgb(213, 206, 206);
+    }
+}
+
+    </style>
+    <h2 style="text-align:center; margin-top:2rem;">Calculator Using JavaScript</h2>
+    <div class="container">
+       <p style="text-align: left; padding-left: 20px;color:white;font-weight: 600;text-transform: uppercase;">C a l c u l a t o r</p>
+        <input type="text" class="input">
+    <div class="row">
+        <button style="width:42%;" class="button">C</button>
+    </div>
+    <div class="row">
+        <button class="button">7</button>
+        <button class="button">8</button>
+        <button class="button">9</button>
+        <button class="button">*</button>
+    </div>
+    <div class="row">
+        <button class="button">4</button>
+        <button class="button">5</button>
+        <button class="button">6</button>
+        <button class="button">/</button>
+    </div>
+    <div class="row">
+        <button class="button">1</button>
+        <button class="button">2</button>
+        <button class="button">3</button>
+        <button class="button">+</button>
+    </div>
+    <div class="row">
+        <button class="button">0</button>
+        <button class="button">-</button>
+        <button class="button">=</button>
+        <button class="button">.</button>
+    </div>
+    </div>
+    <br>
+    <br>
+        <p style="text-align: center; color: rgb(0, 0, 0); font-weight: 500;"><b>Developed by Aman</b> </p>
+</body>
+<script>
+let string = "";
+let buttons = document.querySelectorAll('.button');
+Array.from(buttons).forEach((button) => {
+    button.addEventListener('click', (e) => {
+        if (e.target.innerHTML == '=') {
+            string = eval(string);
+            document.querySelector('input').value = string;
+        }
+        else if (e.target.innerHTML == 'C') {
+            string = "";
+            document.querySelector('input').value = string;
+        }
+        else {
+            console.log(e.target);
+            string = string + e.target.innerHTML;
+            document.querySelector('input').value = string;
+        };
+
+    });
+});
+
+
+</script>
+
+</html>

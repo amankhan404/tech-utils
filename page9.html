@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Using js</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Watch Using JS</h1>
+<h3>Current time is <br><br><span id="time"></span></h3>
+    </div>
+
+
+    <script>
+function displayTime(){
+    time = new Date();
+    console.log(time);
+    document.getElementById('time').innerHTML=time;
+}
+setInterval(displayTime,1000)
+
+
+    </script>
+      <style>
+        body{
+            background-color: rgb(237, 241, 243);
+        }
+        .container{
+           background:linear-gradient(rgb(92, 92, 168),rgb(25, 144, 181));
+            border-radius: 20px;
+            padding: 2rem;
+            color: white;
+            width: 60%;
+            box-shadow: 3px 5px 4px 6px rgb(217, 215, 215);
+            height: 40vh;
+            margin: auto;
+            margin-top: 6rem;
+
+        }
+    </style>
+</body>
+</html>

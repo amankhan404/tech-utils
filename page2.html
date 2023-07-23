@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator - aman</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+    <style>
+        body{
+    background-color: rgb(89, 141, 187);
+}
+
+.container{
+    margin-top: 1%;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-bottom: 5%;
+    
+    padding: 3%;
+  text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px ;
+    box-shadow: 4px 3px 5px 6px rgb(110, 165, 202);
+   font-family: Georgia, 'Times New Roman', Times, serif;
+flex-direction: row;
+}
+p{
+    font-size: 15px;
+    font-weight: 600;
+}
+input{
+    text-align: center;
+    padding: 1.5%;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.subbtn{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 2%;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: rgb(35, 135, 230);
+}
+.age{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+input{
+    width: 50px;
+}
+    </style>
+    <div class="container">
+        <form>
+            <h1>Age Calculator</h1>
+            <p>Date</p>
+            <input type="text" name="date" id="date" placeholder="dd" required minlength="1" maxlength="2">
+            <p>Month</p>
+            <input type="text" name="month" id="month" placeholder="mm" required minlength="1" maxlength="2">
+       <p>Year</p>
+       <input type="text" name="year" id="year" placeholder="yyyy" required minlength="4" maxlength="4">
+<br><br><br><button type="button" name="submit" value="submit" class="subbtn" onclick="age()">&nbsp;&nbsp;&nbsp;Calculate Age&nbsp;&nbsp; &nbsp;</button>
+        </form>
+        <br>
+        <div class="age" id="age"></div>
+        <p>Developed by Aman</p>
+    </div>
+
+   
+
+    <script>
+        function age(){
+
+var d1 = document.getElementById("date").value;
+var m1 = document.getElementById("month").value;
+var y1 = document.getElementById("year").value;
+
+var date = new Date();
+
+var d2 = date.getDate();
+var m2 = 1 + date.getMonth();
+var y2 = date.getFullYear();
+var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+
+if(d1>d2){
+
+    d2 = d2 + month[m2 - 1];
+    m2 =  m2-1;
+}
+
+if(m1>m2){
+
+    m2 = m2 + 12;
+    y2 = y2 - 1;
+}
+ var d = d2 - d1;
+ var m = m2 - m1;
+ var y = y2 - y1;
+
+
+ document.getElementById('age').innerHTML = 'Your Age is :  '  +y+ ' years '+m+' months '+d+' days old '
+}
+
+    </script>
+</body>
+</html>
